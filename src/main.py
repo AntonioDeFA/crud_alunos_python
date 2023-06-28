@@ -24,7 +24,7 @@ while True:
         elif opcao == "1":
             nome = input("Digite o nome do aluno:")
             sobrenome = input("Digite o sobrenome do aluno:")
-            
+
             container.controller_aluno().criar_aluno(nome, sobrenome)
 
             print("Aluno cadastrado!")
@@ -55,32 +55,38 @@ while True:
             atualizou = False
             while notas:
                 print(notas)
-                posicao = input("Digite a posição da nota que deseja alterar:\nDigite 'Sair' para sair:").lower()
+                posicao = input(
+                    "Digite a posição da nota que deseja alterar:\nDigite 'Sair' para sair:"
+                ).lower()
                 if posicao == "sair":
                     break
                 posicao = int(posicao)
-                if posicao>=0 and posicao<=len(notas):
-                    print("Você escolheu a nota "+str(notas[posicao-1]))
-                    acao = input("Você deseja deletar ou atualizar?\nDigite 'Deletar' para deletar, 'Alterar' para alterar e 'Sair' para sair:").lower()
+                if posicao >= 0 and posicao <= len(notas):
+                    print("Você escolheu a nota " + str(notas[posicao - 1]))
+                    acao = input(
+                        "Você deseja deletar ou atualizar?\nDigite 'Deletar' para deletar, 'Alterar' para alterar e 'Sair' para sair:"
+                    ).lower()
                     if acao == "sair":
                         break
                     elif acao == "deletar":
-                        notas.pop(posicao-1)
+                        notas.pop(posicao - 1)
                         atualizou = True
                     elif acao == "alterar":
                         nota = float(input("Digite a nova nota:"))
-                        if nota >10 or nota <0:
+                        if nota > 10 or nota < 0:
                             print("Nota invalida! Tente novamente!")
                             break
-                        notas[posicao-1]= nota
+                        notas[posicao - 1] = nota
                         atualizou = True
                 else:
                     print("Posição errada, tente novamente!")
             else:
-                print("Nenhuma nota foi cadastrada ainda!")      
+                print("Nenhuma nota foi cadastrada ainda!")
 
             if atualizou:
-                container.controller_aluno().atualizar_aluno(matricula, {"notas": notas})
+                container.controller_aluno().atualizar_aluno(
+                    matricula, {"notas": notas}
+                )
                 print("Nota atualizada")
 
         elif opcao == "4":

@@ -1,0 +1,9 @@
+Aluno.json
+Alunos.log
+__pycache__/
+container/__pycache__/
+controller/__pycache__/
+persistencia/__pycache__/
+service/__pycache__/
+utils/__pycache__/
+/.vscode/
