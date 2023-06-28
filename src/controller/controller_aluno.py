@@ -1,6 +1,4 @@
-
 class ControllerAluno:
-
     def __init__(self, aluno_service):
         self.service_aluno = aluno_service
 
@@ -14,7 +12,7 @@ class ControllerAluno:
         self.service_aluno.deletar_aluno(matricula)
 
     def listar_aluno_texto(self, matricula):
-        return self.service_aluno.listar_aluno_texto(matricula) 
+        return self.service_aluno.listar_aluno_texto(matricula)
 
     def listar_aluno_objeto(self, matricula):
-        return self.service_aluno.listar_aluno_objeto(matricula)          
+        return self.service_aluno.listar_aluno_objeto(matricula)
