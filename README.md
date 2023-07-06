@@ -32,6 +32,10 @@ O projeto depende das seguintes bibliotecas:
 - dependency_injector: Utilizada para facilitar a injeção de dependências no código, criando um container responsável  por injetar as dependias sem criar acoplamento entre as classes.
   Obs: em src\requirements.txt é possível ver todas as bibliotecas utilizadas no projeto além de suas versões fixas, servindo também como arquivo de instalação de dependências.
 
+## Testes Unitários
+
+O projeto possui testes unitários para garantir a qualidade do código. Foram utilizados o pytest e o mock para criar e executar os testes. Os testes abrangem diferentes aspectos das funcionalidades implementadas, garantindo a corretude e robustez do sistema.
+
 ## Como usar
 
 Para utilizar o projeto, siga os passos abaixo:
