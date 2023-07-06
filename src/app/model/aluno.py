@@ -1,4 +1,4 @@
-from utils.gerador_id import gerar_id
+from app.utils.gerador_id import gerar_id
 
 
 class Aluno:

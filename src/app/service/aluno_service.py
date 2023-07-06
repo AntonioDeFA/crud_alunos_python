@@ -1,4 +1,4 @@
-from model.aluno import Aluno
+from app.model.aluno import Aluno
 
 
 class AlunoService:
