@@ -1,8 +1,9 @@
 import numpy as np
 
+
 class Convertedor:
-    
-    def dict_aluno_to_string_complex_describe(self,aluno):
+
+    def dict_aluno_to_string_complex_describe(self, aluno):
         media = np.mean(aluno["notas"]) if aluno["notas"] else 0
         estado_aprovacao = "Aprovado" if media >= 7 else "Reprovado"
 
@@ -16,8 +17,7 @@ class Convertedor:
             ]
         )
 
-
-    def dict_aluno_to_string(self,aluno):            
+    def dict_aluno_to_string(self, aluno):
         return "\n".join(
             [
                 "Nome do aluno: "
