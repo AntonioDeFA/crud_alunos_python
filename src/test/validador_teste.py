@@ -103,6 +103,7 @@ def test_entrada_com_campo_notas_vazio_sem_campos_para_ignorar_retorno_sucesso()
 
     payload_valores_dict["notas"] = [10, 7]
 
+
 def test_entrada_com_campo_nome_none_com_campo_nome_campos_para_ignorar_retorno_sucesso():
     validador = ValidadorEntrada(mock_logger())
     payload_valores_dict["nome"] = None

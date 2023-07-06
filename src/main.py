@@ -96,9 +96,9 @@ while True:
             while True:
                 opcao = input(
                     (
-                        "Digite a opção que você quer alterar:\nOpções são "
-                        + ", ".join(opcoes)
-                        + "\nCaso queira sair é só digitar 'Sair':"
+                            "Digite a opção que você quer alterar:\nOpções são "
+                            + ", ".join(opcoes)
+                            + "\nCaso queira sair é só digitar 'Sair':"
                     )
                 ).lower()
                 if opcao == "sair":
