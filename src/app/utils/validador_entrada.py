@@ -9,9 +9,9 @@ class ValidadorEntrada:
             if campo in entrada_ignorar:
                 continue
             if (
-                valor is None
-                or valor == ""
-                or (isinstance(valor, list) and len(valor) == 0)
+                    valor is None
+                    or valor == ""
+                    or (isinstance(valor, list) and len(valor) == 0)
             ):
                 excecao_texto += "\nO campo " + campo + " está vazio!"
             else:
