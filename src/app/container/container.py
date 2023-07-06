@@ -1,10 +1,11 @@
-from utils.logger import Logger
-from utils.convertedor import Convertedor
-from utils.validador_entrada import Validador
-from service.aluno_service import AlunoService
-from persistencia.persistencia import Persistencia
+from app.utils.logger import Logger
+from app.utils.convertedor import Convertedor
+from app.service.aluno_service import AlunoService
+from app.persistence.persistencia import Persistencia
+from app.utils.validador_entrada import ValidadorEntrada
+from app.controller.controller_aluno import ControllerAluno
+
 from dependency_injector import containers, providers
-from controller.controller_aluno import ControllerAluno
 
 
 class Container(containers.DeclarativeContainer):
@@ -12,7 +13,7 @@ class Container(containers.DeclarativeContainer):
 
     _convertedor = providers.Singleton(Convertedor)
 
-    _validador = providers.Singleton(Validador, logger)
+    _validador = providers.Singleton(ValidadorEntrada, logger)
 
     _persistencia = providers.Singleton(Persistencia, logger)
 
