@@ -31,7 +31,7 @@ def test_entrada_dict_vazio_sem_campos_para_ignorar_retorno_sucesso():
     assert resultado == None
 
 
-def test_entrada_none_sem_campos_para_ignorar_retorno_sucesso():
+def test_entrada_none_sem_campos_para_ignorar_retorno_excecao():
     validador = ValidadorEntrada(mock_logger())
     payload_valores_dict = None
 
@@ -58,7 +58,7 @@ def test_entrada_dict_vazio_com_campos_para_ignorar_retorno_sucesso():
     assert resultado == None
 
 
-def test_entrada_none_com_campos_para_ignorar_retorno_sucesso():
+def test_entrada_none_com_campos_para_ignorar_retorno_excecao():
     validador = ValidadorEntrada(mock_logger())
     payload_valores_dict = None
 
@@ -68,7 +68,7 @@ def test_entrada_none_com_campos_para_ignorar_retorno_sucesso():
     assert str(error.value) == "'NoneType' object has no attribute 'items'"
 
 
-def test_entrada_com_campo_nome_none_sem_campos_para_ignorar_retorno_sucesso():
+def test_entrada_com_campo_nome_none_sem_campos_para_ignorar_retorno_excecao():
     validador = ValidadorEntrada(mock_logger())
     payload_valores_dict["nome"] = None
 
@@ -80,7 +80,7 @@ def test_entrada_com_campo_nome_none_sem_campos_para_ignorar_retorno_sucesso():
     payload_valores_dict["nome"] = "José"
 
 
-def test_entrada_com_campo_nome_vazio_sem_campos_para_ignorar_retorno_sucesso():
+def test_entrada_com_campo_nome_vazio_sem_campos_para_ignorar_retorno_excecao():
     validador = ValidadorEntrada(mock_logger())
     payload_valores_dict["nome"] = ""
 
@@ -92,7 +92,7 @@ def test_entrada_com_campo_nome_vazio_sem_campos_para_ignorar_retorno_sucesso():
     payload_valores_dict["nome"] = "José"
 
 
-def test_entrada_com_campo_notas_vazio_sem_campos_para_ignorar_retorno_sucesso():
+def test_entrada_com_campo_notas_vazio_sem_campos_para_ignorar_retorno_excecao():
     validador = ValidadorEntrada(mock_logger())
     payload_valores_dict["notas"] = []
 
@@ -115,7 +115,7 @@ def test_entrada_com_campo_nome_none_com_campo_nome_campos_para_ignorar_retorno_
     payload_valores_dict["nome"] = "José"
 
 
-def test_entrada_com_campo_nome_vazio_com_campo_nome_nao_existente_para_para_ignorar_retorno_sucesso():
+def test_entrada_com_campo_nome_vazio_com_campo_nome_nao_existente_para_para_ignorar_retorno_excecao():
     validador = ValidadorEntrada(mock_logger())
     payload_valores_dict["nome"] = ""
 
@@ -127,7 +127,7 @@ def test_entrada_com_campo_nome_vazio_com_campo_nome_nao_existente_para_para_ign
     payload_valores_dict["nome"] = "José"
 
 
-def test_entrada_com_campo_notas_vazio_com_campo_nome_campos_para_para_ignorar_retorno_sucesso():
+def test_entrada_com_campo_notas_vazio_com_campo_nome_campos_para_para_ignorar_retorno_excecao():
     validador = ValidadorEntrada(mock_logger())
     payload_valores_dict["notas"] = []
 
