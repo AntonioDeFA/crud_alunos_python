@@ -5,8 +5,7 @@ class Aluno:
     def __init__(self, nome, sobrenome, notas=[]):
         self.nome = nome.strip()
         self.sobrenome = sobrenome.strip()
-        if nome != "" and nome != None:
-            self.matricula = gerar_id()
+        self.matricula = gerar_id()
         self.notas = notas
 
     def get_nome(self):
