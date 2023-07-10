@@ -10,9 +10,9 @@ class Persistencia:
         self.log = log
         self.log.info(f"Persistencia iniciada!")
         self.alunos = []
-        self.iniciar()
+        self._iniciar()
 
-    def iniciar(self):
+    def _iniciar(self):
         if not (os.path.exists(Persistencia.NOME_ARQUIVO)):
             self.log.info(
                 f"O arquivo de salvamento dos dados ainda não existe!O arquivo estar sendo criado..."
@@ -26,18 +26,18 @@ class Persistencia:
                 f"O arquivo de salvamento dos dados já existe com o nome Alunos.json!"
                 f"O arquivo será aberto para alterações..."
             )
-            self.carregar()
+            self._carregar()
             self.log.info(
                 f"O arquivo com nome Alunos.json estar aberto para alterações!"
             )
 
-    def salvar(self, aluno_dict={}):
+    def _salvar(self, aluno_dict={}):
         with open(Persistencia.NOME_ARQUIVO, "w", encoding="utf-8") as arquivo:
             if aluno_dict:
                 self.alunos.append(aluno_dict)
             json.dump(self.alunos, arquivo)
 
-    def carregar(self):
+    def _carregar(self):
         try:
             with open(Persistencia.NOME_ARQUIVO, "r", encoding="utf-8") as arquivo:
                 conteudo = arquivo.read()
@@ -55,14 +55,14 @@ class Persistencia:
         for chave in aluno:
             if aluno[chave] is not None:
                 aluno_antigo[chave] = aluno[chave]
-        self.salvar()
+        self._salvar()
         self.log.info(f"O aluno com a matrícula {matricula} foi atualizado!")
 
     def criar(self, aluno):
         matricula = aluno["matricula"]
         nome = aluno["nome"]
         sobrenome = aluno["sobrenome"]
-        self.salvar(aluno)
+        self._salvar(aluno)
 
         self.log.info(
             f"O aluno com nome {nome} {sobrenome} e matricula {matricula} foi cadastrado!"
@@ -78,7 +78,7 @@ class Persistencia:
             for aluno in self.alunos:
                 if matricula == aluno["matricula"]:
                     self.alunos.remove(aluno)
-                    self.salvar({})
+                    self._salvar({})
                     self.log.info(f"O registro com matrícula:{matricula} foi removido!")
                     return
         raise Exception(f"Não existe nenhum registro com matrícula: {matricula}")
