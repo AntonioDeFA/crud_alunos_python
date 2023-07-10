@@ -78,6 +78,7 @@ def test_atualizar_aluno_matricula_none_excecao():
 
     assert str(error.value) == "\nO campo matricula está vazio!"
 
+
 def test_deletar_aluno_campos_preenchido_sucesso():
     mock = container_mock()
     aluno_service = AlunoService(mock.logger.return_value(""), mock._persistencia.return_value(""),
