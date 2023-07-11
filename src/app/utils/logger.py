@@ -9,7 +9,8 @@ class Logger:
         arquivo_log = 'Alunos.log'
         file_handler = logging.FileHandler(arquivo_log)
 
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        formatter = logging.Formatter(
+            '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         file_handler.setFormatter(formatter)
 
         self.logger.addHandler(file_handler)
