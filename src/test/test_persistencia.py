@@ -20,7 +20,7 @@ def test_iniciar_persistencia_sucesso():
 
     resultado = persistence._iniciar()
 
-    assert resultado == None
+    assert resultado is None
 
 
 def test_iniciar_persistencia_com_nome_teste_sucesso():
@@ -30,7 +30,7 @@ def test_iniciar_persistencia_com_nome_teste_sucesso():
 
     resultado = persistence._iniciar()
 
-    assert resultado == None
+    assert resultado is None
 
     os.remove(Persistencia.NOME_ARQUIVO)
 
@@ -42,7 +42,7 @@ def test_carregar_persistencia_sucesso():
 
     resultado = persistence._carregar()
 
-    assert resultado == None
+    assert resultado is None
 
 
 def test_carregar_persistencia_nome_errado_excecao():
@@ -53,7 +53,8 @@ def test_carregar_persistencia_nome_errado_excecao():
     with pytest.raises(Exception) as error:
         persistence._carregar()
 
-    assert str(error.value) == "exceptions must derive from BaseException"
+    assert str(error.value) == "exceptions must derive " \
+                               "from BaseException"
 
     Persistencia.NOME_ARQUIVO = "Aluno.json"
 
@@ -61,12 +62,13 @@ def test_carregar_persistencia_nome_errado_excecao():
 def test_carregar_persistencia_arquivo_vazio_excecao():
     persistence = Persistencia(logger_mock())
 
-    with open(Persistencia.NOME_ARQUIVO, "w", encoding="utf-8") as arquivo:
+    with open(Persistencia.NOME_ARQUIVO, "w",
+              encoding="utf-8") as arquivo:
         arquivo.write("")
 
     resultado = persistence._carregar()
 
-    assert resultado == None
+    assert resultado is None
 
 
 def test_criar_aluno_preenchido_sucesso():
@@ -74,7 +76,7 @@ def test_criar_aluno_preenchido_sucesso():
 
     resultado = persistence.criar(payload_aluno)
 
-    assert resultado == None
+    assert resultado is None
 
 
 def test_criar_aluno_vazio_excecao():
@@ -93,7 +95,7 @@ def test_criar_aluno_campo_nome_vazio_sucesso():
 
     resultado = persistence.criar(payload_aluno)
 
-    assert resultado == None
+    assert resultado is None
 
 
 def test_atualizar_aluno_preenchido_sucesso():
@@ -101,9 +103,11 @@ def test_atualizar_aluno_preenchido_sucesso():
 
     payload_aluno['nome'] = "Maria"
 
-    resultado = persistence.atualizar("1e9cd", payload_aluno)
+    resultado = persistence.atualizar(
+        "1e9cd",
+        payload_aluno)
 
-    assert resultado == None
+    assert resultado is None
 
 
 def test_atualizar_aluno_matricula_vazia_excecao():
@@ -112,7 +116,8 @@ def test_atualizar_aluno_matricula_vazia_excecao():
     with pytest.raises(Exception) as error:
         persistence.atualizar(None, payload_aluno)
 
-    assert str(error.value) == "Não existe nenhum registro com matrícula: None"
+    assert str(error.value) == "Não existe nenhum " \
+                               "registro com matrícula: None"
 
 
 def test_atualizar_aluno_matricula_nao_existente_excecao():
@@ -121,7 +126,8 @@ def test_atualizar_aluno_matricula_nao_existente_excecao():
     with pytest.raises(Exception) as error:
         persistence.atualizar("123456", payload_aluno)
 
-    assert str(error.value) == "Não existe nenhum registro com matrícula: 123456"
+    assert str(error.value) == "Não existe nenhum " \
+                               "registro com matrícula: 123456"
 
 
 def test_deletar_aluno_matricula_certa_sucessso():
@@ -129,7 +135,7 @@ def test_deletar_aluno_matricula_certa_sucessso():
 
     resultado = persistence.deletar("1e9cd")
 
-    assert resultado == None
+    assert resultado is None
 
 
 def test_deletar_aluno_matricula_nao_existente_excecao():
@@ -138,7 +144,8 @@ def test_deletar_aluno_matricula_nao_existente_excecao():
     with pytest.raises(Exception) as error:
         persistence.deletar("123456")
 
-    assert str(error.value) == "Não existe nenhum registro com matrícula: 123456"
+    assert str(error.value) == "Não existe nenhum " \
+                               "registro com matrícula: 123456"
 
 
 def test_deletar_aluno_matricula_none_excecao():
@@ -147,7 +154,8 @@ def test_deletar_aluno_matricula_none_excecao():
     with pytest.raises(Exception) as error:
         persistence.deletar(None)
 
-    assert str(error.value) == "Não existe nenhum registro com matrícula: None"
+    assert str(error.value) == "Não existe nenhum " \
+                               "registro com matrícula: None"
 
 
 def test_listar_todos_alunos_sucessso():
@@ -156,7 +164,7 @@ def test_listar_todos_alunos_sucessso():
 
     resultado = persistence.listar_todos()
 
-    assert resultado != None
+    assert resultado is not None
 
 
 def test_listar_todos_alunos_excecao():
@@ -168,7 +176,8 @@ def test_listar_todos_alunos_excecao():
     with pytest.raises(Exception) as error:
         persistence.listar_todos()
 
-    assert str(error.value) == "Não existe nenhum aluno cadastrado ainda."
+    assert str(error.value) == "Não existe nenhum " \
+                               "aluno cadastrado ainda."
 
 
 def test_listar_um_aluno_por_mtaricula_sucessso():
@@ -177,7 +186,7 @@ def test_listar_um_aluno_por_mtaricula_sucessso():
 
     resultado = persistence.listar_um("1e9cd")
 
-    assert resultado != None
+    assert resultado is not None
 
 
 def test_listar_um_aluno_por_mtaricula_nao_existente_excecao():
@@ -187,7 +196,8 @@ def test_listar_um_aluno_por_mtaricula_nao_existente_excecao():
     with pytest.raises(Exception) as error:
         persistence.listar_um("123456")
 
-    assert str(error.value) == "Não existe nenhum registro com matrícula: 123456"
+    assert str(error.value) == "Não existe nenhum " \
+                               "registro com matrícula: 123456"
 
 
 def test_listar_um_aluno_por_mtaricula_none_excecao():
@@ -197,7 +207,8 @@ def test_listar_um_aluno_por_mtaricula_none_excecao():
     with pytest.raises(Exception) as error:
         persistence.deletar(None)
 
-    assert str(error.value) == "Não existe nenhum registro com matrícula: None"
+    assert str(error.value) == "Não existe nenhum " \
+                               "registro com matrícula: None"
 
 
 def test_salvar_preenchido_sucessso():
@@ -205,7 +216,7 @@ def test_salvar_preenchido_sucessso():
 
     resultado = persistence._salvar(payload_aluno)
 
-    assert resultado == None
+    assert resultado is None
 
 
 def test_salvar_vazio_sucessso():
@@ -213,4 +224,4 @@ def test_salvar_vazio_sucessso():
 
     resultado = persistence._salvar()
 
-    assert resultado == None
+    assert resultado is None

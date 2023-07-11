@@ -7,3 +7,4 @@ persistencia/__pycache__/
 service/__pycache__/
 utils/__pycache__/
 /.vscode/
+.idea/

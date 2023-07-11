@@ -29,13 +29,16 @@ while True:
 
             print("Aluno cadastrado!")
         elif opcao == "2":
-            matricula = input("Digite a matrícula que você deseja adicionar notas:")
-            notas = container.controller_aluno().listar_aluno_objeto(matricula)["notas"]
+            matricula = input("Digite a matrícula que você "
+                              "deseja adicionar notas:")
+            notas = container.controller_aluno().listar_aluno_objeto(
+                matricula)["notas"]
             nota = 0
             while True:
                 nota = float(
                     input(
-                        "Digite uma nota entre 0 e 10.\nCaso queira sair digite um valor menor que zero:"
+                        "Digite uma nota entre 0 e 10.\nCaso queira sair "
+                        "digite um valor menor que zero:"
                     )
                 )
                 if nota > 10:
@@ -45,18 +48,23 @@ while True:
                     break
                 print("Nota enviada!")
                 notas.append(nota)
-            container.controller_aluno().atualizar_aluno(matricula, {"notas": notas})
+            container.controller_aluno().atualizar_aluno(
+                matricula,
+                {"notas": notas})
 
             print("Notas atualizadas")
         elif opcao == "3":
-            matricula = input("Digite a matrícula que você deseja adicionar notas:")
-            notas = container.controller_aluno().listar_aluno_objeto(matricula)["notas"]
+            matricula = input("Digite a matrícula que você"
+                              " deseja adicionar notas:")
+            notas = container.controller_aluno().listar_aluno_objeto(
+                matricula)["notas"]
 
             atualizou = False
             while notas:
                 print(notas)
                 posicao = input(
-                    "Digite a posição da nota que deseja alterar:\nDigite 'Sair' para sair:"
+                    "Digite a posição da nota que deseja alterar:"
+                    "\nDigite 'Sair' para sair:"
                 ).lower()
                 if posicao == "sair":
                     break
@@ -64,7 +72,9 @@ while True:
                 if posicao >= 0 and posicao <= len(notas):
                     print("Você escolheu a nota " + str(notas[posicao - 1]))
                     acao = input(
-                        "Você deseja deletar ou atualizar?\nDigite 'Deletar' para deletar, 'Alterar' para alterar e 'Sair' para sair:"
+                        "Você deseja deletar ou atualizar?\nDigite "
+                        "'Deletar' para deletar, 'Alterar' "
+                        "para alterar e 'Sair' para sair:"
                     ).lower()
                     if acao == "sair":
                         break
@@ -91,12 +101,14 @@ while True:
 
         elif opcao == "4":
             opcoes = ["nome", "sobrenome", "matricula"]
-            matricula = input("Digite a matrícula que você deseja alterar os dados:")
+            matricula = input("Digite a matrícula que você "
+                              "deseja alterar os dados:")
             aluno_dict = {}
             while True:
                 opcao = input(
                     (
-                            "Digite a opção que você quer alterar:\nOpções são "
+                            "Digite a opção que você quer alterar:"
+                            "\nOpções são "
                             + ", ".join(opcoes)
                             + "\nCaso queira sair é só digitar 'Sair':"
                     )
@@ -109,19 +121,25 @@ while True:
                 else:
                     print("Esta opção não existe!\nTente novamente!")
             if aluno_dict:
-                container.controller_aluno().atualizar_aluno(matricula, aluno_dict)
+                container.controller_aluno().atualizar_aluno(
+                    matricula,
+                    aluno_dict)
                 print("Informações atualizadas!")
             else:
-                print("Você não escolheu nada, o aluno não foi atualizado!")
+                print("Você não escolheu nada, "
+                      "o aluno não foi atualizado!")
 
         elif opcao == "5":
-            print(container.controller_aluno().listar_aluno_texto(""))
+            print(container.controller_aluno().
+                  listar_aluno_texto(""))
             matricula = input("Digite a matrícula que você deseja excluir:")
             container.controller_aluno().deletar_aluno(matricula)
             print("Aluno excluido")
         elif opcao == "6":
-            matricula = input("Digite a matrícula que você deseja ver os dados:")
-            print(container.controller_aluno().listar_aluno_texto(matricula))
+            matricula = input("Digite a matrícula que "
+                              "você deseja ver os dados:")
+            print(container.controller_aluno().
+                  listar_aluno_texto(matricula))
         elif opcao == "7":
             print(container.controller_aluno().listar_aluno_texto(None))
         else:
