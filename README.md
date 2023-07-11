@@ -34,13 +34,20 @@ O projeto depende das seguintes bibliotecas:
 
 ## Testes Unitários
 
-O projeto possui testes unitários para garantir a qualidade do código. Foram utilizados o pytest e o mock para criar e executar os testes. Os testes abrangem diferentes aspectos das funcionalidades implementadas, garantindo a corretude e robustez do sistema.
+O projeto possui testes unitários para garantir a qualidade do código. Foram utilizados o pytest e o mock para criar e executar os testes. Os testes abrangem diferentes aspectos das funcionalidades implementadas, garantindo a corretude e robustez do sistema. Pode-se executa-los executando o comando 'pytest -v src/test' que também esta no arquivo Makefile.
+
+## Utilização do Flake8 para Formatação de Código
+
+Este projeto utiliza o Flake8 como uma ferramenta de análise estática e formatação de código Python, ajudando a manter um código limpo, legível e bem formatado. Para validar a formatação é só usar o camando 'flake8 --max-line-length=110 src' que também esta no arquivo Makefile.
+
+O uso do Flake8 neste projeto garante que o código siga as melhores práticas de formatação e estilo recomendadas pela comunidade Python.
 
 ## Como usar
 
 Para utilizar o projeto, siga os passos abaixo:
 
 1. Clone o repositório para o seu ambiente local: `git clone https://github.com/AntonioDeFA/crud_alunos_python.git`
-2. Certifique-se de ter as bibliotecas numpy e dependency_injector instaladas em seu ambiente Python, para isto use o comando `pip install -r .\src\requirements.txt`.
+2. Certifique-se de ter as bibliotecas numpy e dependency_injector instaladas em seu ambiente Python, para isto use o comando `pip install -r .\src\requirements.txt` que também esta no arquivo Makefile.
 3. Execute o arquivo `main.py` para iniciar o programa.
 4. Siga as instruções apresentadas no console para interagir com as funcionalidades do sistema.
+  Obs: Todos os comando usados para executar o projetor estão no arquivo Makefile.
